@@ -3,6 +3,7 @@ import "../Header/header.css";
 import styled from "styled-components";
 import { hpe } from "grommet-theme-hpe";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 import {
   Box,
   Button,
@@ -20,9 +21,7 @@ const StyledTextInput = styled(TextInput).attrs(() => ({
   "aria-labelledby": "search-icon-example",
 }))``;
 
-const items = [
-  { label: 'About' }
-];
+const items = [{ label: "About" }];
 
 const HeaderComponent = () => {
   const size = useContext(ResponsiveContext);
@@ -68,7 +67,9 @@ const HeaderComponent = () => {
           {!["xsmall", "small"].includes(size) ? (
             <Nav direction="row">
               {items.map((item) => (
-                <Button label={item.label} key={item.label} />
+                <Link to="/about">
+                  <Button label={item.label} key={item.label} />
+                </Link>
               ))}
             </Nav>
           ) : (
