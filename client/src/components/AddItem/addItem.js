@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Axios from "axios"
 import "bootstrap/dist/css/bootstrap.css";
 import {
   Box,
@@ -32,10 +33,13 @@ const AddItemForm = () => {
   const size = useContext(ResponsiveContext);
 
   // eslint-disable-next-line no-unused-vars
+  
   const onSubmit = ({ value, touched }) => {
-
     // Your submission logic here
-
+    console.log(value)
+    Axios.post("http://localhost:3001/create", value).then(() => {
+       console.log("success");
+    });
   };
 
   // provide order of formfields for validation
