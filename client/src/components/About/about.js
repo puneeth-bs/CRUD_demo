@@ -4,7 +4,7 @@ import { Hpe } from "grommet-icons";
 import "bootstrap/dist/css/bootstrap.css";
 import "../About/about.css";
 
-const aboutComponent = () => {
+const AboutComponent = () => {
   return (
     <div className="aboutComponent container">
       <div>
@@ -22,4 +22,4 @@ const aboutComponent = () => {
   );
 };
 
-export default aboutComponent;
+export default AboutComponent;

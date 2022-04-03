@@ -4,6 +4,7 @@ import { hpe } from "grommet-theme-hpe";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.css";
 import { DataTable, Heading, Meter, Text, ResponsiveContext } from "grommet";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -234,7 +235,9 @@ const DataTableExample = ({ designSystemDemo }) => {
             </div>
 
             <div className="ml-auto  p-2 ">
-              <Button label="Add Item" primary onClick={() => {}} />
+              <Link to="/addItemForm">
+                <Button label="Add Item" primary onClick={() => {}} />
+              </Link>
             </div>
           </div>
 
