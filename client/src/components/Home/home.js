@@ -165,7 +165,7 @@ const columns = [
   },
   {
     property: "protocol",
-    header: "Portocol",
+    header: "Protocol",
     render: (datum) => <Text truncate>{datum.protocol}</Text>,
     sortable: false,
   },
