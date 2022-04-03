@@ -5,145 +5,10 @@ import PropTypes from "prop-types";
 import Axios from "axios"
 import "bootstrap/dist/css/bootstrap.css";
 import { DataTable, Heading, Meter, Text, ResponsiveContext } from "grommet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// const data = [
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.26",
-//     hostName: "WIN-IPN1EGOQU4Q",
-//     port: "8081",
-//     protocol: "tcp",
-//     cvss: "9.3",
-//     severity: "High",
-//     timeStamp: "2021-12-01T07:48:43Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.150",
-//     hostName: "WIN-IPN1EGOQU4Q",
-//     port: "22",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T07:35:31Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.142",
-//     hostName: "SEC-WIN",
-//     port: "433",
-//     protocol: "tcp",
-//     cvss: "3.5",
-//     severity: "Low",
-//     timeStamp: "2021-12-01T07:01:16Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.112",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:30:28Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.102",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "5.9",
-//     severity: "Medium",
-//     timeStamp: "2021-12-01T06:14:34Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-//   {
-//     ipAddress: "15.213.248.152",
-//     hostName: "SEC-WIN",
-//     port: "8080",
-//     protocol: "tcp",
-//     cvss: "10",
-//     severity: "High",
-//     timeStamp: "2021-12-01T06:14:24Z",
-//   },
-// ];
+
+
 
 const columns = [
   {
@@ -154,7 +19,7 @@ const columns = [
     primary: false,
   },
   {
-    property: "hostName",
+    property: "hostname",
     header: "Hostname",
     sortable: false,
   },

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Axios from "axios"
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import {
   Box,
@@ -31,6 +32,7 @@ const AddItemForm = () => {
     TimeStamp: "",
   });
   const size = useContext(ResponsiveContext);
+  let navigate = useNavigate();
 
   // eslint-disable-next-line no-unused-vars
   
@@ -39,6 +41,7 @@ const AddItemForm = () => {
     console.log(value)
     Axios.post("http://localhost:3001/api/insert", value).then(() => {
        console.log("success");
+       navigate("/")
     });
   };
 
