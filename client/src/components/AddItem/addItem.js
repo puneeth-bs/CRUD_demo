@@ -17,64 +17,7 @@ import {
 } from "grommet";
 import { hpe } from "grommet-theme-hpe";
 
-const emailMask = [
-  {
-    regexp: /^[\w\-_.]+$/,
-    placeholder: "jane.smith",
-  },
-  { fixed: "@" },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: "hpe",
-  },
-  { fixed: "." },
-  {
-    regexp: /^[\w]+$/,
-    placeholder: "com",
-  },
-];
-
 const states = ["High", "Medium", "Low"];
-
-const phoneMask = [
-  { fixed: "(" },
-  {
-    length: 3,
-    regexp: /^[0-9]{1,3}$/,
-    placeholder: "XXX",
-  },
-  { fixed: ")" },
-  { fixed: " " },
-  {
-    length: 3,
-    regexp: /^[0-9]{1,3}$/,
-    placeholder: "XXX",
-  },
-  { fixed: "-" },
-  {
-    length: 4,
-    regexp: /^[0-9]{1,4}$/,
-    placeholder: "XXXX",
-  },
-];
-
-const emailValidation = [
-  {
-    regexp: new RegExp("[^@ \\t\\r\\n]+@"),
-    message: "Enter a valid email address.",
-    status: "error",
-  },
-  {
-    regexp: new RegExp("[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+"),
-    message: "Enter a valid email address.",
-    status: "error",
-  },
-  {
-    regexp: new RegExp("[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+"),
-    message: "Enter a valid email address.",
-    status: "error",
-  },
-];
 
 const AddItemForm = () => {
   const [formValues, setFormValues] = React.useState({
@@ -90,13 +33,15 @@ const AddItemForm = () => {
 
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
+
     // Your submission logic here
+
   };
 
   // provide order of formfields for validation
   // to properly place focus on any errors or infos
   const formFields = [
-    "IP Adress",
+    "IPAddress",
     "Hostname",
     "Port",
     "Protocol",
@@ -147,46 +92,46 @@ const AddItemForm = () => {
               validate="submit"
             >
               <Box>
-                <FormField required htmlFor="firstName" name="firstName">
+                <FormField required htmlFor="IPAddress" name="IPAddress">
                   <TextInput
-                    id="firstName"
-                    name="firstName"
+                    id="IPAddress"
+                    name="IPAddress"
                     placeholder="IP Address"
                   />
                 </FormField>
-                <FormField required htmlFor="lastName" name="lastName">
+                <FormField required htmlFor="Hostname" name="Hostname">
                   <TextInput
-                    id="lastName"
-                    name="lastName"
+                    id="Hostname"
+                    name="Hostname"
                     placeholder="Hostname"
                   />
                 </FormField>
-                <FormField htmlFor="address1" name="address1">
-                  <TextInput id="address1" name="address1" placeholder="Port" />
+                <FormField htmlFor="Port" name="Port">
+                  <TextInput id="Port" name="Port" placeholder="Port" />
                 </FormField>
-                <FormField htmlFor="address2" name="address2">
+                <FormField htmlFor="Protocol" name="Protocol">
                   <TextInput
-                    id="address2"
-                    name="address2"
+                    id="Protocol"
+                    name="Protocol"
                     placeholder="Protocol"
                   />
                 </FormField>
-                <FormField htmlFor="city" name="city">
-                  <TextInput id="city" name="city" placeholder="CVSS" />
+                <FormField required htmlFor="CVSS" name="CVSS">
+                  <TextInput id="CVSS" name="CVSS" placeholder="CVSS" />
                 </FormField>
-                <FormField htmlFor="state" name="state">
+                <FormField htmlFor="Severity" name="Severity">
                   <Select
-                    id="state"
-                    name="state"
+                    id="Severity"
+                    name="Severity"
                     dropHeight="small"
                     options={states}
                     placeholder="Select Severity"
                   />
                 </FormField>
-                <FormField htmlFor="zipcode" name="zipcode">
+                <FormField htmlFor="TimeStamp" name="TimeStamp">
                   <TextInput
-                    id="zipcode"
-                    name="zipcode"
+                    id="TimeStamp"
+                    name="TimeStamp"
                     placeholder="TimeStamp"
                   />
                 </FormField>
@@ -197,7 +142,7 @@ const AddItemForm = () => {
                 }
                 margin={{ top: "small", bottom: "small" }}
               >
-                <Button label="Continue" primary type="submit" />
+                <Button label="Submit" primary type="submit" />
               </Box>
             </Form>
           </Box>
