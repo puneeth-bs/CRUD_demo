@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/Header/header";
 import About from "./components/About/about";
 import Footer from "./components/Footer/footer";
+import Home from "./components/Home/home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -11,9 +12,10 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/about" element={<About/>} />
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/about" element={<About />} /> */}
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
