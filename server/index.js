@@ -13,13 +13,21 @@ const db = mysql.createConnection({
   database: "information",
 });
 
-app.post("/create", (req, res) => {
+
+app.get("/api/get", (req, res)=> {
+  const sqlSelect = "SELECT * FROM vulnerabilityreport";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+})
+
+app.post("/api/insert", (req, res) => {
   const ipAddress = req.body.IPAddress;
   const hostName = req.body.Hostname;
   const Port = req.body.Port;
   const portocol = req.body.Protocol;
   const cvss = req.body.CVSS;
-  const severity = req.body.severity;
+  const severity = req.body.Severity;
   const timeStamp = req.body.TimeStamp;
 
   db.query(
@@ -34,9 +42,11 @@ app.post("/create", (req, res) => {
     }
   );
 
+
+
   console.log(ipAddress);
 });
 
 app.listen(3001, () => {
-  console.log("Yey, your server is running on port xyz");
+  console.log("Your server is running on port 3001");
 });

@@ -37,7 +37,7 @@ const AddItemForm = () => {
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here
     console.log(value)
-    Axios.post("http://localhost:3001/create", value).then(() => {
+    Axios.post("http://localhost:3001/api/insert", value).then(() => {
        console.log("success");
     });
   };
@@ -103,7 +103,7 @@ const AddItemForm = () => {
                     placeholder="IP Address"
                   />
                 </FormField>
-                <FormField required htmlFor="Hostname" name="Hostname">
+                <FormField htmlFor="Hostname" name="Hostname">
                   <TextInput
                     id="Hostname"
                     name="Hostname"
