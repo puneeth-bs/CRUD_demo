@@ -204,8 +204,8 @@ const handleClickRow = (obj) => {
   alert(`
     Record was clicked:
     { 
-        id: ${obj.id},
-        poolName: ${obj.poolName}
+        IPAdress: ${obj.ipAddress},
+        Hostname: ${obj.hostName}
     }
     
     You can use onClickRow() to navigate to a record's detail
