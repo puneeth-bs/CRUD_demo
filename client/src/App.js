@@ -5,6 +5,7 @@ import About from "./components/About/about";
 import Footer from "./components/Footer/footer";
 import Home from "./components/Home/home";
 import AddItemForm from "./components/AddItem/addItem"
+import UpdateItemForm from "./components/UpdateItem/updateItem"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/addItemForm" element={<AddItemForm />}/>
-          {/* <Route path="/about" element={<About />}/> */}
+          <Route path="/updateItemForm" element={<UpdateItemForm/>}/>
         </Routes>
         {/* <Footer /> */}
       </div>

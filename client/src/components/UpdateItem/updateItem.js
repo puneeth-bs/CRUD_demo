@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Axios from "axios"
+import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import {
@@ -18,10 +18,11 @@ import {
   Grommet,
 } from "grommet";
 import { hpe } from "grommet-theme-hpe";
+import updateItem from "../UpdateItem/updateItem.js";
 
 const states = ["High", "Medium", "Low"];
 
-const AddItemForm = () => {
+const UpdateItemForm = () => {
   const [formValues, setFormValues] = React.useState({
     IPAddress: "",
     Hostname: "",
@@ -32,21 +33,7 @@ const AddItemForm = () => {
     TimeStamp: "",
   });
   const size = useContext(ResponsiveContext);
-  let navigate = useNavigate();
 
-  // eslint-disable-next-line no-unused-vars
-  
-  const onSubmit = ({ value, touched }) => {
-    // Your submission logic here
-    console.log(value)
-    Axios.post("http://localhost:3001/api/insert", value).then(() => {
-       console.log("success");
-       navigate("/")
-    });
-  };
-
-  // provide order of formfields for validation
-  // to properly place focus on any errors or infos
   const formFields = [
     "IPAddress",
     "Hostname",
@@ -56,6 +43,10 @@ const AddItemForm = () => {
     "Severity",
     "TimeStamp",
   ];
+
+  const onSubmit = ({ value, touched }) => {
+    //submission logic here
+  };
 
   const onValidate = (validationResults) => {
     const target = formFields.find(
@@ -70,16 +61,16 @@ const AddItemForm = () => {
 
   return (
     <Grommet theme={hpe}>
-      <div className="container ">
+      <div className="container">
         <Box gap="medium" width="medium">
           <Header
             direction="column"
-            align="start" 
+            align="start"
             gap="xxsmall"
             pad={{ horizontal: "xxsmall" }}
           >
             <Heading level={2} margin="none">
-              Add Item
+              Update Item
             </Heading>
             <Text></Text>
           </Header>
@@ -143,14 +134,29 @@ const AddItemForm = () => {
                   />
                 </FormField>
               </Box>
-              <Box
-                align={
-                  !["xsmall", "small"].includes(size) ? "start" : undefined
-                }
-                margin={{ top: "small", bottom: "small" }}
-              >
-                <Button label="Submit" primary type="submit" />
-              </Box>
+              <div className="d-flex flex-row">
+                <div className="p-2">
+                  <Box
+                    align={
+                      !["xsmall", "small"].includes(size) ? "start" : undefined
+                    }
+                    margin={{ top: "small", bottom: "small" }}
+                  >
+                    <Button label="Update" primary type="submit" />
+                  </Box>
+                </div>
+
+                <div className="p-2">
+                  <Box
+                    align={
+                      !["xsmall", "small"].includes(size) ? "start" : undefined
+                    }
+                    margin={{ top: "small", bottom: "small" }}
+                  >
+                    <Button label="Delete" primary type="submit" />
+                  </Box>
+                </div>
+              </div>
             </Form>
           </Box>
         </Box>
@@ -159,4 +165,4 @@ const AddItemForm = () => {
   );
 };
 
-export default AddItemForm;
+export default UpdateItemForm;
